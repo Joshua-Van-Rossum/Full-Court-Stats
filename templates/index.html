@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Full-Court-Stats</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="description" content="Full Court Stats is your all-access platform for custom NBA analytics. Create, share, and explore personalized basketball statistics, interactive visualizations, and downloadable datasets. Perfect for fans, analysts, and data enthusiasts seeking deeper insights into the game." />
+</head>
+<body>
+  <div id = "main-page" class="grid-container">
+    <div id="nav-bar" class="bar">
+
+      <h2 class="nav-button">Home</h2>
+      <h2 class="nav-button" id="loadBtn">Create Custom Statistic</h2>
+      <h2 class="nav-button">Predictions</h2>
+      <h2 class="nav-button">Data Visualizations</h2>
+      <h2 class="nav-button">Explore Datasets</h2>
+
+    </div>
+    <div id = "side-content" class="side-bar">
+      <div id="home-side-content">
+        <h2 style="text-align:center;">Home</h2>
+        <h4>Version 0.1.0</h4>
+        <p>
+          This website is still in its infancy, but I am working hard to add new features and datasets. <br> Check back regularly to stay up to date with all the exciting changes.
+        </p>
+
+      </div>
+      <div id="create-side-content">
+        <h2 style="text-align:center;">Create Custom Statistic</h2>
+        <p>
+          Use the buttons to the side or on your keyboard to build your own custom NBA statistic. <br>
+          Create your own taylored metric that reflects what you value most in the game, whether it's scoring, efficiency, or clutch performance.<br>
+          <strong>Note:</strong> The custom statistic will be added to the table below once you click "Submit".
+        </p>
+        <h4>Things to Come:</h4>
+        <ul>
+          <li>Indexing</li>
+          <li>Stat normalization</li>
+          <li>Filters</li>
+        </ul>
+      </div>
+      <div id="predictions-side-content">
+        <h2 style="text-align:center;">Predictions</h2>
+      </div>
+      <div id="visualizations-side-content">
+        <h2 style="text-align:center;">Visualizations</h2>
+        <p>Coming soon!</p>
+      </div>
+      <div id="data-side-content"> 
+        <h2 style="text-align:center;">Datasets</h2>
+        <table>
+          {% for file in files %}
+          <tr>
+            <td>
+              <strong>{{ file.name }}</strong><br>
+              <span style="font-size: 0.9em; color: #555;">
+                {{ file.size_kb }} kb
+                &nbsp;•&nbsp;
+                <a href="{{ file.download_url }}" title="Download">
+                  <i class="fa fa-download"></i>
+                </a>
+              </span>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+    <div id = "home-screen" class="main-content">
+      <div id = "Home">
+        <div class="description-container">
+          <h1>Welcome to Full Court Stats</h1>
+          <p>
+            Full Court Stats is your all-access pass to the world of custom basketball analytics. It's the ultimate platform for NBA fans, data enthusiasts, and aspiring analysts to create and share personalized NBA statistics that reflect what <em>you</em> value most in the game.
+          </p>
+          <ul>
+            <li><strong>Create and share your own custom NBA stats</strong>, based on what matters most to you: scoring, efficiency, awards, or clutch performance.</li>
+            <li><strong>Explore interactive and creative data visualizations</strong> that bring player and team trends to life.</li>
+            <li><strong>Download NBA stats data</strong> for your own deep dives or projects.</li>
+            <li><strong>View season predictions</strong> powered by analytics, machine learning, and community insight.</li>
+          </ul>
+          <p>
+            Whether you're building your perfect MVP metric or looking for a fresh perspective on the league, Full Court Stats gives you the tools and freedom to see basketball your way.
+          </p>
+        </div>
+
+      </div>
+      <div id = "Create Custom Statistic">
+        <div id="input-container">
+          <div id = "input-display">
+            <p id="expression"></p>
+            <label for="statName">Name your custom statistic:</label>
+            <input type="text" id="statName" placeholder="e.g. Player Efficiency Rating">
+            <button id="submitStat">Submit</button>
+          </div>
+          <div id="input-button-container">
+            <button>(</button>
+            <button>)</button>
+            <button>^</button>
+            <button>+</button>
+            <button>-</button>
+            <button>x</button>
+            <button id="clear-btn">Clear</button>
+            <button>.</button>
+            <button>&#247</button>
+            
+          </div>
+        </div>
+        <div id="numeric-column-buttons"></div>
+        <div class="table-container">
+          <table id="csvTable" class="dataframe">
+            <thead>
+              <tr>
+                <!-- Headers will be filled by JS -->
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rows will be filled by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id = "Predictions">
+        <h2>Predictions</h2>
+        <p>Nothing here yet!</p>
+        <P>Check back closer to the NBA season to see MVP and NBA championship predicions based on different machine learning algorithms</P>
+      </div>
+      <div id = "Data Visualizations">
+        <h2>Data Visualizations</h2>
+        <p>Coming soon!</p>
+        <p>I plan on having multiple visualiztions to provide insight on past and current trends in the NBA.</p>
+      </div>
+      <div id = "Explore Datasets">
+        <h2>Explore Datasets</h2>
+        <p>I am working hard to update the current datasets with the 2025 NBA season. Datasets are available to download on the left side of the page.</p>
+
+        {% if preview_table %}
+          <h3 style="margin-top: 2em;">Viewing: {{ preview_filename }}</h3>
+          <div style="max-height: 500px; overflow: auto; border: 1px solid #ccc; padding: 10px;">
+            {{ preview_table | safe }}
+          </div>
+        {% endif %}
+      </div>
+      
+    </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
+
+
+
