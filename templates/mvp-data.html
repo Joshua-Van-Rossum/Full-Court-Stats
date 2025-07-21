@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVP Voting Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='mvp-data-styles.css') }}">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <header style="padding: 1em 0; text-align: center; background: #222; color: #fff;">
+        <a href="{{ url_for('index') }}" style="color: #fff; text-decoration: none; font-size: 1.2em;">
+            &larr; Back to Home
+        </a>
+    </header>
+
+    <div id="main-content">
+        <div id="top-content">
+            <div id="chart"></div>
+            <div id="legend">
+                <h2>Legend</h2>
+                <ul id="legend-list">
+                    <!-- Legend items will be dynamically added here -->
+                </ul>
+            </div>
+        </div>
+        <div id="bottom-content">
+            <div id="chart-options">
+                <form id="options-form">
+                    <label for="player-select">Player:</label>
+                    <select id="player-select"></select>
+
+                    <label for="season-start">Season Start:</label>
+                    <select id="season-start"></select>
+
+                    <label for="season-end">Season End:</label>
+                    <select id="season-end"></select>
+
+                    <label for="per-totals">Mode:</label>
+                    <select id="per-totals">
+                        <option value="totals">Totals</option>
+                        <option value="per">Per Game</option>
+                    </select>
+
+                    <label for="column-select">Stat:</label>
+                    <select id="column-select"></select>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="myCheckbox">
+                        <label for="myCheckbox">Show Other MVP's</label>
+                    </div>
+
+                    <button id="generate-graph" type="submit">Update Chart</button>
+                </form>
+            </div>
+            <div id="MVP-info">
+                <h2>Voter Fatigue in MVP Voting</h2>
+                <p>
+                    Every year, the NBAs Most Valuable Player (MVP) award is given to the league’s top performer. However, even dominant players can stop receiving votes despite maintaining or improving their performance. This phenomenon is known as voter fatigue, where voters grow reluctant to keep awarding the same player year after year. 
+                    <br><br>
+                    This dynamic visualization is designed to help you explore the concept of voter fatigue. You can examine players' careers to see when their MVP streaks ended, even as their stats stayed steady or improved. Use the filters to select specific players and stats, and look for white circles to identify MVP-winning seasons.
+                </p>
+                <p>Some interesting presets coming soon!</p>
+            </div>
+        </div>
+
+    </div>
+    <script src="{{ url_for('static', filename='mvp-data-script.js') }}"></script>
+</body>
+</html>

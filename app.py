@@ -91,6 +91,14 @@ def custom_stat():
 
     return jsonify(df.to_dict(orient='records'))
 
+@app.route('/mvp-data')
+def mvp_data():
+    return render_template('mvp-data.html')
+
+@app.route('/uploads/<filename>')
+def serve_upload(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
 if __name__ == '__main__':
     app.run(debug=True)
 
