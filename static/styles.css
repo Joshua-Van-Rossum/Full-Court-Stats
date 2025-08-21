@@ -1,219 +1,127 @@
+html {
+    font-size: 18px; /* Base font size */
+}
+
+.background {
+  background: #333333;
+}
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #2a2a2a;/*#eeece2;*/
-    margin: 0;
-    padding: 2rem;
-    font-size: 1rem;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  max-width: 1400px;
+  margin: 0px auto;
+  font-size: 1.1rem;
 }
 
-.bar{
-  cursor: default;
+/* Navbar container */
+.navbar {
+  background-color: transparent;
+  max-width: 1400px; /* keeps layout from stretching too much */
+  margin: 15px auto; 
+  padding: 0 20px;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto 1fr; /* nav + content */
-  gap: 10px;
-  margin: 5px;
-  min-height: 100vh;
-}
-
-/* NAV BAR */
-#nav-bar {
-  grid-column: 1 / span 12;  /* Full width */
-  grid-row: 1;               /* First row */
-  background-color: #eeece2;
-  border-radius: 8px;
-  padding: 10px;
-  border: 2px solid #2a2a2a;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Navigation list */
+.navbar ul {
   display: flex;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
   justify-content: space-between;
-  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* SIDE BAR */
-#side-content {
-  grid-column: 1 / span 3;   /* Left 3 columns */
-  grid-row: 2;
-  background-color: #eeece2;
-  padding: 10px;
-  border-radius: 8px;
-  border: 2px solid #2a2a2a;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+.navbar li {
+  flex: 1 1 auto;
+  text-align: center;
 }
 
-/* MAIN CONTENT */
-#home-screen {
-  grid-column: 4 / span 9;   /* Remaining 9 columns */
-  grid-row: 2;
-  background-color: #eeece2;
-  padding: 10px;
-  border-radius: 8px;
-  border: 2px solid #2a2a2a;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.description-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #f7f7f7;
-  border-radius: 10px;
-  font-family: Arial, sans-serif;
-  color: #222;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border: black, solid, 4px;
-}
-
-.description-container h1 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #1a1a1a;
-}
-
-.description-container p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.description-container ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-bottom: 20px;
-}
-
-.description-container li {
-  margin-bottom: 10px;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.table-container {
-  max-height: 600px;     /* Set vertical scroll area */
-  overflow-y: auto;
-  overflow-x: auto;      /* Enable horizontal scrolling */
-  border: 1px solid #ccc;
-  margin: 1em auto;
-  padding: 0.5em;
-}
-
-table {
-  width: 99%;
-  margin: 1em auto;
-  border-spacing: 0; 
-}
-
-table.dataframe {
-  width: max-content; /* Shrinks to content width for horizontal scrolling */
-  min-width: 100%;
-  border-spacing: 0; 
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-}
-
-table.dataframe th, table.dataframe td {
-  padding: 8px;
-  border: 1px solid #ccc;
-  text-align: left;
-}
-
-table.dataframe th {
-  background-color: #f2f2f2;
-  position: sticky;
-  top: 0;
-  z-index: 8;                     /* ensure it's on top */
-  border-bottom: 2px solid #ccc;
-}
-
-/* Make input-container horizontal */
-#input-container {
-  display: flex;
-  flex-direction: row;
-  align-items: top;
-  gap: 0.5rem;
-}
-
-#input-display {
-  display: flex;
-  width: 60%;
-  flex-direction: column;
-  align-items: top;
-  gap: 0.5rem;
-}
-
-#input-display label {
+/* Links */
+.navbar a {
   display: block;
-  font-weight: bold;
-}
-
-#statName {
-  padding: 8px;
-  margin-right: 10px;
-  width: 250px;
-  font-size: 1em;
-}
-
-#submitStat {
-  padding: 8px 16px;
-  font-size: 1em;
-  cursor: pointer;
-  background-color: #4CAF50;
+  padding: 15px 10px;
   color: white;
-  border: none;
-  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.2rem; 
 }
 
-#submitStat:hover {
-  background-color: #45a049;
+/* Hover effect */
+.navbar a:hover {
+  background-color: #555;
 }
 
-#expression {
-  width: 90%;
-  height: 2.1rem;
-  font-size: 1.55em;
-  background-color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 1em;          /* Optional: adds spacing inside the box */
-  border-radius: 8px;    /* Optional: smooth corners */
+#head-spacer {
+    height: 2px;
+    width: 92%;
+    background-color: white;
+    margin: 0 auto; /* This will center the spacer */
 }
 
-#input-button-container {
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  width: 39%;
-  margin: 20px auto;
+.navbar a.selected {
+    text-decoration: underline;
 }
 
-#input-button-container button {
-  padding: 10px;
-  font-size: 1.35em;
-  background-color: #f0f0f0;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* Main content layout */
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
 }
 
-#input-button-container button:hover {
-  background-color: #e0e0e0;
+#primary-content {
+    flex: 0 0 70%;
+    order: 2;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-#numeric-column-buttons button {
-  padding: 6px 12px;
-  margin: 4px;
-  font-size: 1em;
-  background-color: #f8f8f8;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  cursor: pointer;
+#secondary-content {
+    flex: 0 0 21%;
+    order: 1;
+    box-sizing: border-box;
+    background-color: #DE6C21;
+    padding: 10px;
+    margin: 25px 25px;
+    border-radius: 16px;
+    border: 2px solid #2a2a2a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: black;
 }
-#numeric-column-buttons button:hover {
-  background-color: #e6e6e6;
+
+
+/* Mobile-friendly adjustments */
+@media (max-width: 856px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navbar a {
+    font-size: 1.25rem; /* even bigger on mobile */
+    padding: 12px;
+  }
+
+  #main {
+    flex-direction: column;
+  }
+
+  #primary-content {
+        margin: 10px 10px;
+    }
+
+  
+  #secondary-content,
+  #primary-content {
+    flex: 1 1 100%;
+    order: 0; /* Reset order to document order */
+  }
+
+  #secondary-content {
+    order: 1; 
+  }
+  #primary-content {
+    order: 2; 
+  }
 }

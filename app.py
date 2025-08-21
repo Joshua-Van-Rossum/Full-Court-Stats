@@ -12,18 +12,11 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def index():
+    return render_template('index.html')
 
-    files = []
-    for filename in os.listdir(UPLOAD_FOLDER):
-        if filename.endswith('.csv'):
-            size_kb = os.path.getsize(os.path.join(UPLOAD_FOLDER, filename)) / 1024
-            files.append({
-                'name': filename,
-                'size_kb': f"{size_kb:.2f}",
-                'download_url': f"/download/{filename}"
-            })
-
-    return render_template('index.html',files=files)
+@app.route('/custom_stat_page')
+def customStat():
+    return render_template('custom-stat.html')
 
 
 

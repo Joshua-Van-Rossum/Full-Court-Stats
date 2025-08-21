@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />        
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom-stat-styles.css') }}" />
+    <script src="{{ url_for('static', filename='custom-stat-script.js') }}"></script>
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <title>Page Title</title>
+</head>
+<body class="background">
+    <header>
+        <nav class="navbar">
+            <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a class="selected" href="#">Create Custom Statistic</a></li>
+            <li><a href="#">Predictions</a></li>
+            <li><a href="#">Data Visualizations</a></li>
+            <li><a href="#">Explore Datasets</a></li>
+            </ul>
+            <div id="head-spacer"></div>
+        </nav>
+    </header>
+    <main id="main" role="main">
+        <div id="primary-content">
+            <div id="equation-creator">
+                <div id="equation-display">
+                    <p id = "expression"></p>
+                </div>
+                <div id="equation-builder">
+                    <div id="input-button-container">
+                        <button>(</button>
+                        <button>)</button>
+                        <button>^</button>
+                        <button>&#247</button>
+                        <button>7</button>
+                        <button>8</button>
+                        <button>9</button>
+                        <button>x</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                        <button>-</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>+</button>
+                        <button>.</button>
+                        <button>0</button>
+                        <button id="clear-btn">Clear</button>
+                    </div>
+                    <div id="stat-button-container">
+                        <button>PTS</button>
+                        <button>AST</button>
+                        <button>REB</button>
+                        <button>STL</button>
+                        <button>BLK</button>
+                        <button>TOV</button>
+                        <button>PF</button>
+                        <button>FGM</button>
+                        <button>FGA</button>
+                        <button>3PM</button>
+                        <button>3PA</button>
+                        <button>FTM</button>
+                        <button>FTA</button>
+                        <button>MIN</button>
+                    </div>
+
+                </div>
+                <div id="submit-container">
+                    <label for="stat-name">Name your Custom Statistic:</label>
+                    <input type="text" id="stat-name" name="stat-name" placeholder="EFF">
+                    <button type="submit">Create</button>
+                </div>
+
+            </div>
+        </div>
+        <div id="secondary-content">
+            <h2 style="text-align:center;">Create Custom Statistic</h2>
+            <p>
+            Use the buttons to the side or on your keyboard to build your own custom NBA statistic. <br>
+            Create your own taylored metric that reflects what you value most in the game, whether it's scoring, efficiency, or clutch performance.<br>
+            <strong>Note:</strong> The custom statistic will be added to the table below once you click "Submit".
+            </p>
+            <h4>Things to Come:</h4>
+            <ul>
+            <li>Indexing</li>
+            <li>Stat normalization</li>
+            <li>Filters</li>
+            </ul>
+        </div>
+        <div id="tertiary-content">
+            <div id="table-header">
+                <h4>1946 - 2024 Career Data</h4>
+                
+                <p><button>&lt;</button> 1-50 <button>&gt;</button></p>
+            </div>
+
+        </div>
+        
+    </main>
+</body>
+</html>

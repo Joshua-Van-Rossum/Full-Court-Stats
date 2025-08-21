@@ -1,0 +1,269 @@
+html {
+    font-size: 18px; /* Base font size */
+}
+
+.background {
+  background: #333333;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  max-width: 1400px;
+  margin: 0px auto;
+  font-size: 1.1rem;
+}
+
+/* Navbar container */
+.navbar {
+  background-color: transparent;
+  max-width: 1400px; /* keeps layout from stretching too much */
+  margin: 15px auto; 
+  padding: 0 20px;
+}
+
+/* Navigation list */
+.navbar ul {
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.navbar li {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+/* Links */
+.navbar a {
+  display: block;
+  padding: 15px 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem; 
+}
+
+/* Hover effect */
+.navbar a:hover {
+  background-color: #555;
+}
+
+#head-spacer {
+    height: 2px;
+    width: 92%;
+    background-color: white;
+    margin: 0 auto; /* This will center the spacer */
+}
+
+.navbar a.selected {
+    text-decoration: underline;
+}
+
+/* Main content layout */
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+}
+
+#primary-content {
+    flex: 0 0 70%;
+    order: 2;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#secondary-content {
+    flex: 0 0 21%;
+    order: 1;
+    box-sizing: border-box;
+    background-color:  #ADDFC6;
+    padding: 10px;
+    margin: 25px 25px;
+    border-radius: 16px;
+    border: 2px solid #2a2a2a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+#equation-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    background-color: white;
+    width: 100%;
+    border-radius: 8px;
+    color: black;
+    font-size: 1.35em;
+    text-align: center;
+}
+
+#input-button-container {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  width: 40%;
+  margin: 20px auto;
+}
+
+#equation-builder {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  background-color: #e6dcc8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 5px;
+  gap: 10px;
+}
+
+#input-button-container button {
+  padding: 10px;
+  font-size: 1.35em;
+  background-color:  #E8E2e5;
+  border: 1px solid #000;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#input-button-container button:hover {
+  background-color: #d0cacd;
+}
+
+#stat-button-container {
+  margin-top: 10px;
+  display: row;
+  gap: 4px;
+  width: 50%;
+  margin: 10px auto;
+}
+
+#stat-button-container button{
+    padding: 10px;
+    font-size: 0.8em;
+    background-color:  #ADDFC6;
+    border: 1px solid #000;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 29%;
+    margin: 6px;
+    font-weight: 800;
+}
+
+#stat-button-container button:hover{
+    background-color: #96C8AC;
+}
+
+#submit-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+    font-size: 1.3em;
+}
+
+#submit-container input[type="text"] {
+    padding: 5px;
+    font-size: 1.0em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100px; 
+}
+
+#submit-container button {
+    padding: 12px 20px;
+    font-size: 1.0em;
+    background-color: #3C9F40; /* Green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 200px;
+    font-weight: 600;
+}
+
+#tertiary-content {
+    flex: 0 0 100%;
+    order: 3;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #e6dcc8; 
+    margin-top: 20px;
+    border-radius: 8px;
+    color: black;
+}
+
+#table-header {
+    display: flex;
+    justify-content: row;
+    align-items: center;
+    gap: 20%;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+
+#table-header button {
+    border-radius: 50%;
+    background-color: #333333; 
+    color: white;
+    font-size: 1.2em;
+    padding: 5px;
+
+}
+
+
+/* Mobile-friendly adjustments */
+@media (max-width: 856px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navbar a {
+    font-size: 1.25rem; /* even bigger on mobile */
+    padding: 12px;
+  }
+
+  #main {
+    flex-direction: column;
+  }
+
+  #primary-content {
+        margin: 10px 10px;
+    }
+
+  
+  #secondary-content,
+  #primary-content {
+    flex: 1 1 100%;
+    order: 0; /* Reset order to document order */
+  }
+
+  #secondary-content {
+    order: 1; 
+  }
+  #primary-content {
+    order: 2; 
+  }
+
+  #equation-builder {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #input-button-container,
+  #stat-button-container {
+    width: 90%;
+    margin: 10px 0;
+  }
+}
