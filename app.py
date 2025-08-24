@@ -18,6 +18,10 @@ def index():
 def customStat():
     return render_template('custom-stat.html')
 
+@app.route('/under_construction')
+def underConstruction():
+    return render_template('under-construction.html')
+
 
 
 @app.route('/download/<filename>')
@@ -51,6 +55,8 @@ def custom_stat():
     data = request.get_json()
     name = data.get('name')
     expression = data.get('expression')
+    start = data.get('start_index', 1)
+    end = data.get('end_index', 50)
 
     if not name or not expression:
         return jsonify({'error': 'Missing name or expression'}), 400
@@ -58,8 +64,12 @@ def custom_stat():
     if not utils.is_valid_expression(expression):
         return jsonify({'error': 'Invalid expression'}), 400
 
+
     filename = 'uploads/All Time Player Stats 1946-2024.csv'
     df = pd.read_csv(filename).fillna(0)
+
+    df = df[df['Games'] > 200]
+
     new_order = [name, 'Name', 'Start-End','All-Stars','MVPs','Pts', 'Ast', 'Reb', 'Stl', 'Blk', 'Tov', 'PF', 'FGm','FGa', 'FG%','FG3m','FG3a', 'FG3%', 'FTm','FTa', 'FT%', 'mins', 'Games']
 
     # Replace [ColumnName] in expression with df['ColumnName']
@@ -79,10 +89,15 @@ def custom_stat():
         df = df.round(3)
         #df = df.drop(columns=['id'])  # Drop 'id' column if it exists
         df = df.sort_values(by=name, ascending=False)  # Sort by new stat, highest to lowest
+        
+        # Paginate the DataFrame
+        paginated_df = df.iloc[start - 1:end]
+        paginated_df.insert(0, 'Index', range(start, start + len(paginated_df)))
+
     except Exception as e:
         return jsonify({'error': str(e)}), 400
 
-    return jsonify(df.to_dict(orient='records'))
+    return jsonify(paginated_df.to_dict(orient='records'))
 
 @app.route('/mvp-data')
 def mvp_data():

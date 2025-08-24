@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />        
+    <meta charset="utf-8" />                        
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <link rel="stylesheet" href="{{ url_for('static', filename='custom-stat-styles.css') }}" />
     <script src="{{ url_for('static', filename='custom-stat-script.js') }}"></script>
     <link rel="icon" href="favicon.png" type="image/png" />
-    <title>Page Title</title>
+    <title>Full-Court-Stats</title>
 </head>
 <body class="background">
     <header>
@@ -15,9 +15,9 @@
             <ul>
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a class="selected" href="#">Create Custom Statistic</a></li>
-            <li><a href="#">Predictions</a></li>
-            <li><a href="#">Data Visualizations</a></li>
-            <li><a href="#">Explore Datasets</a></li>
+            <li><a href="{{ url_for('underConstruction') }}">Predictions</a></li>
+            <li><a href="{{ url_for('underConstruction') }}">Data Visualizations</a></li>
+            <li><a href="{{ url_for('underConstruction') }}">Explore Datasets</a></li>
             </ul>
             <div id="head-spacer"></div>
         </nav>
@@ -51,27 +51,28 @@
                         <button id="clear-btn">Clear</button>
                     </div>
                     <div id="stat-button-container">
-                        <button>PTS</button>
-                        <button>AST</button>
-                        <button>REB</button>
-                        <button>STL</button>
-                        <button>BLK</button>
-                        <button>TOV</button>
+                        <button>Pts</button>
+                        <button>Ast</button>
+                        <button>Reb</button>
+                        <button>Stl</button>
+                        <button>Blk</button>
+                        <button>Tov</button>
                         <button>PF</button>
-                        <button>FGM</button>
-                        <button>FGA</button>
-                        <button>3PM</button>
-                        <button>3PA</button>
-                        <button>FTM</button>
-                        <button>FTA</button>
-                        <button>MIN</button>
+                        <button>FGm</button>
+                        <button>FGa</button>
+                        <button>FG3m</button>
+                        <button>FG3a</button>
+                        <button>FTm</button>
+                        <button>FTa</button>
+                        <button>mins</button>
+                        <button>Games</button>
                     </div>
 
                 </div>
                 <div id="submit-container">
                     <label for="stat-name">Name your Custom Statistic:</label>
                     <input type="text" id="stat-name" name="stat-name" placeholder="EFF">
-                    <button type="submit">Create</button>
+                    <button id="submitStat" type="submit">Create</button>
                 </div>
 
             </div>
@@ -85,7 +86,7 @@
             </p>
             <h4>Things to Come:</h4>
             <ul>
-            <li>Indexing</li>
+            <li>Player Search</li>
             <li>Stat normalization</li>
             <li>Filters</li>
             </ul>
@@ -94,9 +95,21 @@
             <div id="table-header">
                 <h4>1946 - 2024 Career Data</h4>
                 
-                <p><button>&lt;</button> 1-50 <button>&gt;</button></p>
+                <p><button id="decrease-btn">&lt;</button> <span id="pagination-display">1-50</span> <button id="increase-btn">&gt;</button></p>
             </div>
-
+            <div class="table-container">
+                <table id="csvTable" class="dataframe">
+                    <thead>
+                        <tr>
+                        <!-- Headers will be filled by JS -->
+                         
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be filled by JS -->
+                    </tbody>
+                </table>
+            </div>
         </div>
         
     </main>

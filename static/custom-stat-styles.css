@@ -192,6 +192,7 @@ body {
 }
 
 #tertiary-content {
+    max-width: 1400px;
     flex: 0 0 100%;
     order: 3;
     padding: 20px;
@@ -221,6 +222,48 @@ body {
 
 }
 
+.table-container {
+    max-height: 600px; /* Adjust as needed */
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+#csvTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#csvTable th, #csvTable td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    white-space: nowrap; /* Prevents line breaks in cells */
+}
+
+#csvTable thead th {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    color: white;
+    z-index: 1; /* Ensures header stays above scrolling content */
+}
+
+#csvTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+#csvTable tbody tr:nth-child(odd) {
+    background-color: #c9c9c9;
+    color: #333;
+}
+
+#csvTable tbody tr:hover {
+    background-color: #8a8a8a;
+    color: #333;
+}
 
 /* Mobile-friendly adjustments */
 @media (max-width: 856px) {
@@ -238,15 +281,14 @@ body {
     flex-direction: column;
   }
 
-  #primary-content {
-        margin: 10px 10px;
-    }
-
-  
   #secondary-content,
-  #primary-content {
+  #primary-content,
+  #tertiary-content {
     flex: 1 1 100%;
     order: 0; /* Reset order to document order */
+    margin: 10px; /* Add consistent margin */
+    width: auto; /* Let flexbox control width */
+    box-sizing: border-box;
   }
 
   #secondary-content {
@@ -255,11 +297,16 @@ body {
   #primary-content {
     order: 2; 
   }
+  #tertiary-content {
+    order: 3; 
+  }
 
   #equation-builder {
     flex-direction: column;
     align-items: center;
   }
+
+  
 
   #input-button-container,
   #stat-button-container {
