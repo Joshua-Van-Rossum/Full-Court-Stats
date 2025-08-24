@@ -131,6 +131,7 @@ body {
   border-radius: 6px;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  color: black;
 }
 
 #input-button-container button:hover {
@@ -156,6 +157,7 @@ body {
     width: 29%;
     margin: 6px;
     font-weight: 800;
+    color: black;
 }
 
 #stat-button-container button:hover{
