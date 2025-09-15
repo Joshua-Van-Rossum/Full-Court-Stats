@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Under Construction</title>
+  <title>Full-Court-Stats</title>
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='visuals_styles.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta name="description" content="Full Court Stats is your all-access platform for custom NBA analytics. Create, share, and explore personalized basketball statistics, interactive visualizations, and downloadable datasets. Perfect for fans, analysts, and data enthusiasts seeking deeper insights into the game." />
 </head>
@@ -12,10 +13,10 @@
     <header>
         <nav class="navbar">
             <ul>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('customStat') }}">Home</a></li>
             <li><a href="{{ url_for('customStat') }}">Create Custom Statistic</a></li>
             <li><a href="{{ url_for('underConstruction') }}">Predictions</a></li>
-            <li><a href="{{ url_for('visuals') }}">Data Visualizations</a></li>
+            <li><a class="selected" href="#">Data Visualizations</a></li>
             <li><a href="{{ url_for('underConstruction') }}">Explore Datasets</a></li>
             </ul>
             <div id="head-spacer"></div>
@@ -23,11 +24,19 @@
     </header>
     <main id="main" role="main">
         <div id="primary-content">
-            <h1>Under Construction</h1>
-            <p>This page is currently under construction. Please check back soon for exciting new content!</p>
+            <h1>Explore Data through Interactive Visuals</h1>
+            <div class="visual-container">
+                <h2>MVPs and Voter Fatigue</h2>
+                <p>Every year, the NBAs Most Valuable Player (MVP) award is given to the league’s top performer. However, even dominant players can stop receiving votes despite maintaining or improving their performance. This phenomenon is known as voter fatigue, where voters grow reluctant to keep awarding the same player year after year. But is this phenmonon real? Or are there other underlying causes for inconsistent MVP votes.</p>
+                <a href="{{ url_for('voterFatigueVisual') }}">See Visual</a>
+            </div>
         </div>
         <div id="secondary-content">
-            <h2 style="text-align:center;">Coming Soon!</h2>
+            <h2 style="text-align:center;">Home</h2>
+            <h4>Quick Access</h4>
+            <a href="{{ url_for('voterFatigueVisual') }}">Voter Fatigue&#9658</a>
+            
+            
         </div>
         
     </main>

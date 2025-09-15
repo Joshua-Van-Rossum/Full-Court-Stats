@@ -1,0 +1,15 @@
+#secondary-content {
+    background-color: #DAA0D9;
+}
+
+#secondary-content a{
+    color: black;
+    padding: 15px;
+}
+
+.visual-container {
+    background-color: #e6dcc8;
+    color:black;
+    padding: 15px;
+    border-radius: 16px;
+}

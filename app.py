@@ -22,6 +22,16 @@ def customStat():
 def underConstruction():
     return render_template('under-construction.html')
 
+@app.route('/visuals')
+def visuals():
+    return render_template('visuals.html')
+
+@app.route('/voter_fatigue_visual')
+def voterFatigueVisual():
+    return render_template('mvp-data.html')
+
+
+
 
 
 @app.route('/download/<filename>')
