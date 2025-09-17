@@ -90,6 +90,22 @@ body {
     color: black;
 }
 
+#tertiary-content {
+    flex: 0 0 100%;
+    order: 3;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    font-style: italic;
+    color: #ccc;
+}
+
+#typed-quote {
+  font-size: 1.5rem;
+  font-family: Georgia, serif;
+  overflow: hidden;
+}
+
 
 /* Mobile-friendly adjustments */
 @media (max-width: 856px) {
@@ -123,5 +139,9 @@ body {
   }
   #primary-content {
     order: 2; 
+  }
+
+  #tertiary-content {
+    order: 3; 
   }
 }

@@ -39,7 +39,7 @@
         </div>
         <div id="secondary-content">
             <h2 style="text-align:center;">Home</h2>
-            <h4>Version 1.1.1</h4>
+            <h4>Version 1.1.2</h4>
             <p>
             This website is still in its infancy, but I am working hard to add new features and datasets. <br><br> Check back regularly to stay up to date with all the exciting changes.
             </p>
@@ -48,8 +48,33 @@
             </div>
         </div>
         
+        <div id="tertiary-content">
+            <div id="typed-quote"></div>
+        </div>
     </main>
-   
+    <script>
+        const quotes = [`"There's only two dudes better than me, and I'm both of them." - Lavar Ball`,
+        `"I've had to overcome a lot of diversity." - Drew Gooden`,
+        `"Violence is never the answer, but sometimes it is." - Matt Barnes`,
+        `"I'd say I gave it the old college try, except that I never went to college." - Darryl Dawkins`,
+        `"The only difference between a good shot and a bad shot is if it goes in or not." - Charles Barkley`,
+        '"I’m like the answer to that question no one knows the answer to - the Pythagorum Theory. A-squared plus B-squared. Most people don’t know the answer but I do - it’s C-squared." - Shaquille O’neal'
+        ];
+
+        const quote = quotes[Math.floor(Math.random() * quotes.length)];
+        let i = 0;
+
+        function typeWriter() {
+        if (i < quote.length) {
+            document.getElementById("typed-quote").innerHTML += quote.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+        }
+        }
+        window.onload = typeWriter;
+
+
+    </script>
 </body>
 </html>
 
